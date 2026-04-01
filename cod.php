@@ -2,17 +2,17 @@
 require_once 'Pembayaran.php';
 require_once 'Cetak.php';
 
-class TransferBank extends Pembayaran implements Cetak {
+class COD extends Pembayaran implements Cetak {
 
     public function prosesPembayaran() {
         if ($this->validasi()) {
-            return "Transfer Bank Rp " . $this->totalBayar();
+            return "COD Rp " . $this->totalBayar();
         }
         return "Jumlah tidak valid";
     }
 
     public function cetakStruk() {
-        return "Struk Transfer Bank: Rp " . $this->totalBayar();
+        return "Struk COD: Rp " . $this->totalBayar();
     }
 }
 ?>

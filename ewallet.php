@@ -1,19 +1,18 @@
 <?php
 require_once 'Pembayaran.php';
-require_once 'cetak.php';
+require_once 'Cetak.php';
 
-// Class E-Wallet
 class Ewallet extends Pembayaran implements Cetak {
 
     public function prosesPembayaran() {
         if ($this->validasi()) {
-            return "Pembayaran E-Wallet Rp {$this->jumlah} berhasil";
+            return "E-Wallet Rp " . $this->totalBayar();
         }
         return "Jumlah tidak valid";
     }
 
     public function cetakStruk() {
-        return "Struk E-Wallet: Rp {$this->jumlah}";
+        return "Struk E-Wallet: Rp " . $this->totalBayar();
     }
 }
 ?>

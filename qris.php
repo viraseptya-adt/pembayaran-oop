@@ -1,19 +1,18 @@
 <?php
 require_once 'Pembayaran.php';
-require_once 'cetak.php';
+require_once 'Cetak.php';
 
-// Class QRIS
 class QRIS extends Pembayaran implements Cetak {
 
     public function prosesPembayaran() {
         if ($this->validasi()) {
-            return "Pembayaran QRIS Rp {$this->jumlah} berhasil (scan QR)";
+            return "QRIS Rp " . $this->totalBayar();
         }
         return "Jumlah tidak valid";
     }
 
     public function cetakStruk() {
-        return "Struk QRIS: Rp {$this->jumlah}";
+        return "Struk QRIS: Rp " . $this->totalBayar();
     }
 }
 ?>
